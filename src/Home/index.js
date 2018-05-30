@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import NumberFormat from 'react-number-format';
 import FormGrid from './FormGrid';
+import Footer from './Footer';
 
 export default class Home extends Component {
   constructor(props) {
@@ -49,38 +51,55 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div className="container">
-        <h1>Teoria de la decisión</h1>
-
-        <div className="row">
-          <div className="col-md-6">
-            <FormGrid
-              grid={this.state.grid}
-              row={this.state.row}
-              column={this.state.column}
-              changeValue={this.changeInput}
-              calcAnswer={this.calcAnswer}
-            />
-            <div className="row">
-              <div className="col-md-6">
-                <p>Maximizar utilidad: </p>
+      <div>
+          <div className="jumbotron">
+            <div className="container">
+              <div className="row">
+                <h1 className="mx-auto">Teoria de la decisión</h1>
               </div>
-              <div className="col-md-6">
-                {this.state.maximize}
-              </div>
-              <div className="col-md-6">
-                <p>Reducir costos:</p>
-              </div>
-              <div className="col-md-6">
-                {this.state.minimize}
-              </div>
+                <p className="lead">Explicacion del proyecto</p>
+                <hr className="my-4" />
+                <p>No creo que sea necesario</p>
             </div>
-
           </div>
+        <div className="container">
+
           <div className="row">
-            <p>Grafico proximamente</p>
+            <div className="col-md-6">
+              <FormGrid
+                grid={this.state.grid}
+                row={this.state.row}
+                column={this.state.column}
+                changeValue={this.changeInput}
+                calcAnswer={this.calcAnswer}
+              />
+              <div className="row">
+                <div className="col-md-12">
+                   <hr size="30" />
+                  <h2 className="text-center">Resultados</h2>
+                </div>
+
+                <div className="col-md-6">
+                  <p>Maximizar utilidad: </p>
+                </div>
+                <div className="col-md-6">
+                  <NumberFormat value={this.state.maximize} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                </div>
+                <div className="col-md-6">
+                  <p>Reducir costos:</p>
+                </div>
+                <div className="col-md-6">
+                  <NumberFormat value={this.state.minimize} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                </div>
+              </div>
+
+            </div>
+            <div className="row">
+              <p></p>
+            </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NumberFormat from 'react-number-format';
 
 export default class FormGrid extends Component {
   render() {
@@ -21,7 +22,7 @@ export default class FormGrid extends Component {
             }
           </div>
         ) }
-        <input type="submit" value="Submit"  />
+        <input type="submit" value="Submit" class="btn btn-primary btn-block" />
       </form>
     );
   }
